@@ -1,0 +1,248 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Prathamesh Pawar</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(120deg, #232526, #414345);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 10%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      animation: slideDown 0.8s ease-out;
+      flex-wrap: wrap;
+    }
+
+    nav .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #00d4ff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background: #00d4ff;
+      color: #111;
+      transform: scale(1.1);
+    }
+
+    /* Home Section */
+    .home-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 10%;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    .home-section h1 {
+      font-size: 70px;
+      margin-bottom: 20px;
+      color: #00d4ff;
+      animation: slideUp 1s ease-out;
+    }
+
+    .home-section p {
+      font-size: 20px;
+      max-width: 700px;
+      color: #ddd;
+      line-height: 1.6;
+      margin-bottom: 35px;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    /* Card Buttons */
+    .card-buttons {
+      display: flex;
+      justify-content: center;
+    }
+
+    .card-btn {
+      background: rgba(255,255,255,0.05);
+      padding: 20px 35px;
+      border-radius: 12px;
+      color: #fff;
+      font-weight: 500;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .card-btn:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 15px 5px rgba(0,212,255,0.3),
+                  0 10px 25px rgba(0,212,255,0.2);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #aaa;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .footer-socials a {
+      color: #00d4ff;
+      font-size: 22px;
+      transition: 0.3s;
+    }
+
+    .footer-socials a:hover {
+      color: white;
+      transform: scale(1.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .home-section {
+        padding: 50px 5%;
+      }
+
+      .home-section h1 {
+        font-size: 48px;
+      }
+
+      .home-section p {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .home-section h1 {
+        font-size: 38px;
+      }
+
+      .home-section p {
+        font-size: 16px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-60px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+  <div class="logo">Portfolio</div>
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="project.html">Projects</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="certificate.html">Certifications</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Home Section -->
+<section class="home-section">
+  <h1>Welcome To My Portfolio</h1>
+ <p>
+  Hi, I'm <b>Prathamesh Pawar</b>, an MCA student with strong foundations in Data Structures, 
+  Object-Oriented Programming, and Java backend development. I have hands-on experience in 
+  building scalable applications using Spring Boot, REST APIs, Hibernate (JPA), and MySQL. 
+  I am actively developing skills in Agentic AI using LangChain4j, focusing on autonomous 
+  task execution, tool calling, and multi-step reasoning. Alongside backend development, 
+  I have experience in manual testing, database validation, and data visualization using 
+  Power BI. I am seeking Software Engineering Intern or entry-level roles where I can apply 
+  my problem-solving skills and grow in modern backend and AI-driven systems.
+</p>
+
+  <div class="card-buttons">
+    <a href="file/prathamesh pawar.pdf" download class="card-btn">Download Resume</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div>© 2025 Prathamesh Pawar | All Rights Reserved</div>
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/prathamesh-pawar-a55588276/" target="_blank">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/prathameshpawar07" target="_blank">
+      <i class="fab fa-github"></i>
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>

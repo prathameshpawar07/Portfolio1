@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Prathamesh Pawar</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; scroll-behavior: smooth; }
+
+    body {
+      background: linear-gradient(120deg, #232526, #414345);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 10%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      animation: slideDown 0.8s ease-out;
+      flex-wrap: wrap;
+    }
+
+    nav .logo { font-size: 22px; font-weight: 700; color: #00d4ff; }
+    nav ul { list-style: none; display: flex; gap: 20px; flex-wrap: wrap; }
+    nav ul li a {
+      text-decoration: none; color: white; font-weight: 500;
+      padding: 6px 14px; border-radius: 20px; transition: 0.3s;
+    }
+    nav ul li a:hover, nav ul li a.active {
+      background: #00d4ff; color: #111; transform: scale(1.1);
+    }
+
+    /* About Section */
+    .about-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 10%;
+      gap: 50px;
+    }
+
+    .profile-pic {
+      width: 340px;
+      height: 480px;
+      border-radius: 10%;
+      object-fit: cover;
+      border: 3px solid #00d4ff;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .about-content {
+      flex: 1;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .about-content h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      color: #00d4ff;
+    }
+
+    .about-content p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #ddd;
+      margin-bottom: 25px;
+    }
+
+    /* Cards */
+    .about-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.1);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 0 15px rgba(0,212,255,0.3);
+    }
+
+    .card i {
+      font-size: 32px;
+      color: #00d4ff;
+      margin-bottom: 10px;
+    }
+
+    /* Popup */
+    .popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.3s;
+      z-index: 2000;
+    }
+
+    .popup.active { visibility: visible; opacity: 1; }
+
+    .popup-content {
+      background: rgba(44,47,51,0.95);
+      padding: 30px;
+      border-radius: 14px;
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .popup-content h1 { color: #00d4ff; margin-bottom: 15px; }
+
+    .popup-content ul { list-style: none; }
+    .popup-content ul li {
+      background: rgba(255,255,255,0.05);
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: 8px;
+      color: #ddd;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #00d4ff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #aaa;
+      font-size: 14px;
+      margin-top: 80px;
+    }
+
+    .show { opacity: 1 !important; transform: translateY(0) !important; transition: 0.7s; }
+
+    @media (max-width: 900px) {
+      .about-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .profile-pic { width: 260px; height: 360px; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-60px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">Portfolio</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="project.html">Projects</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="certificate.html">Certifications</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="about-section">
+  <img src="file/Photo.jpg" alt="Prathamesh Pawar" class="profile-pic">
+
+  <div class="about-content">
+    <h1>About Me</h1>
+    <p>
+      Hi, I'm <b>Prathamesh Pawar</b>, an MCA student with strong foundations in Data Structures,
+      Object-Oriented Programming, and Java backend development. I have hands-on experience
+      building scalable applications using Spring Boot, REST APIs, Hibernate (JPA), and MySQL.
+      I am actively developing skills in Agentic AI using LangChain4j, focusing on autonomous
+      task execution, tool calling, and multi-step reasoning.
+    </p>
+
+    <div class="about-cards">
+      <div class="card" onclick="openPopup('education')">
+        <i class="fas fa-user-graduate"></i>
+        <h3>Education</h3>
+      </div>
+      <div class="card" onclick="openPopup('skills')">
+        <i class="fas fa-code"></i>
+        <h3>Skills</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Education Popup -->
+<div class="popup" id="educationPopup">
+  <div class="popup-content">
+    <h1>Education</h1>
+    <ul>
+      <li><strong>MCA (2024–2026)</strong><br>D. Y. Patil Institute of MCA & Management, Akurdi — CGPA: 7.63</li>
+      <li><strong>BCA (2021–2024)</strong><br>HVPM Amravati — CGPA: 6.99</li>
+      <li><strong>HSC (2021)</strong><br>Vidya Bharti Junior College — 81.50%</li>
+      <li><strong>SSC (2019)</strong><br>J.D. Chaware Vidya Mandir — 78.20%</li>
+    </ul>
+    <button class="close-btn" onclick="closePopup('education')">Close</button>
+  </div>
+</div>
+
+<!-- Skills Popup -->
+<div class="popup" id="skillsPopup">
+  <div class="popup-content">
+    <h1>Skills</h1>
+    <ul>
+      <li><strong>Languages:</strong> Java, Python</li>
+      <li><strong>Backend:</strong> Spring Boot, Hibernate (JPA), JDBC, Servlets, JSP, REST APIs</li>
+      <li><strong>Databases:</strong> MySQL</li>
+      <li><strong>Agentic AI:</strong> LangChain4j, Prompt Engineering, Tool Calling</li>
+      <li><strong>Tools:</strong> Git, GitHub, Postman, Power BI</li>
+      <li><strong>Testing:</strong> Manual Testing, Functional Testing</li>
+    </ul>
+    <button class="close-btn" onclick="closePopup('skills')">Close</button>
+  </div>
+</div>
+
+<footer>
+  © 2025 Prathamesh Pawar | All Rights Reserved
+</footer>
+
+<script>
+  function openPopup(type) {
+    document.getElementById(type + 'Popup').classList.add('active');
+  }
+  function closePopup(type) {
+    document.getElementById(type + 'Popup').classList.remove('active');
+  }
+
+  const elements = document.querySelectorAll('.profile-pic, .about-content, .card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

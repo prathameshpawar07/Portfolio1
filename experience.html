@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience | Prathamesh Pawar</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif; }
+    body {
+      background: linear-gradient(120deg, #232526, #414345);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    nav {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 10%;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(10px);
+      background: rgba(255,255,255,0.05);
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+    nav .logo { font-size:22px; font-weight:700; color:#00d4ff; }
+    nav ul { list-style:none; display:flex; gap:20px; }
+    nav ul li a {
+      text-decoration:none;
+      color:white;
+      font-weight:500;
+      padding:6px 14px;
+      border-radius:20px;
+      transition:0.3s;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      background:#00d4ff;
+      color:#111;
+    }
+
+    /* Experience Section */
+    .experience {
+      flex:1;
+      padding:80px 10% 120px;
+    }
+
+    .experience h1 {
+      text-align:center;
+      font-size:42px;
+      margin-bottom:60px;
+      color:#00d4ff;
+      opacity:0;
+      transform:translateY(40px);
+      transition:0.8s;
+    }
+
+    .exp-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+      gap:30px;
+    }
+
+    .exp-card {
+      background: rgba(255,255,255,0.05);
+      padding:55px 25px 25px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,0.1);
+      position:relative;
+      opacity:0;
+      transform:translateY(40px);
+      transition:0.4s;
+    }
+
+    .exp-card:hover {
+      transform:translateY(-10px);
+      box-shadow:0 0 18px rgba(0,212,255,0.35);
+    }
+
+    .exp-card i {
+      font-size:30px;
+      color:#00d4ff;
+      position:absolute;
+      top:20px;
+      left:20px;
+    }
+
+    .exp-card h3 {
+      font-size:20px;
+      margin-bottom:5px;
+      color:#00d4ff;
+    }
+
+    .exp-role {
+      font-size:15px;
+      font-weight:500;
+      margin-bottom:8px;
+      color:#fff;
+    }
+
+    .exp-duration {
+      font-size:14px;
+      color:#aaa;
+      margin-bottom:15px;
+    }
+
+    .exp-card ul {
+      padding-left:18px;
+      color:#ccc;
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .show {
+      opacity:1 !important;
+      transform:translateY(0) !important;
+    }
+
+    footer {
+      text-align:center;
+      padding:20px;
+      background: rgba(255,255,255,0.05);
+      border-top:1px solid rgba(255,255,255,0.1);
+      color:#aaa;
+      margin-top:80px;
+    }
+
+    /* Responsive */
+    @media(max-width:768px){
+      .experience { padding:60px 6%; }
+      .experience h1 { font-size:32px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+  <div class="logo">Portfolio</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="project.html">Projects</a></li>
+    <li><a href="experience.html" class="active">Experience</a></li>
+    <li><a href="certificate.html">Certifications</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Experience Section -->
+<section class="experience">
+  <h1>My Experience</h1>
+
+  <div class="exp-grid">
+
+    <!-- Internship -->
+    <div class="exp-card">
+      <i class="fas fa-briefcase"></i>
+      <h3>Makryto Innovation Pvt. Ltd.</h3>
+      <div class="exp-role">Python & Power BI Intern</div>
+      <div class="exp-duration">Feb 2022 – Apr 2022</div>
+      <ul>
+        <li>Developed Python backend logic and supported application workflows.</li>
+        <li>Validated and analyzed data using MySQL queries.</li>
+        <li>Built interactive Power BI dashboards for reporting and insights.</li>
+        <li>Performed manual testing to improve data accuracy and functional reliability.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  © 2026 Prathamesh Pawar | All Rights Reserved
+</footer>
+
+<script>
+  const cards = document.querySelectorAll(".exp-card");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => observer.observe(card));
+
+  const heading = document.querySelector(".experience h1");
+  const headingObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        headingObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  headingObserver.observe(heading);
+</script>
+
+</body>
+</html>

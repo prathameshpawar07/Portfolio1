@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Prathamesh Pawar</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
+    body{
+      background:linear-gradient(120deg,#232526,#414345);
+      color:#fff;min-height:100vh;display:flex;flex-direction:column
+    }
+
+    nav{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:18px 10%;position:sticky;top:0;z-index:1000;
+      backdrop-filter:blur(10px);
+      background:rgba(255,255,255,0.05);
+      border-bottom:1px solid rgba(255,255,255,0.1)
+    }
+    nav .logo{font-size:22px;font-weight:700;color:#00d4ff}
+    nav ul{list-style:none;display:flex;gap:20px}
+    nav ul li a{
+      color:#fff;text-decoration:none;font-weight:500;
+      padding:6px 14px;border-radius:20px;transition:.3s
+    }
+    nav ul li a:hover,nav ul li a.active{
+      background:#00d4ff;color:#111
+    }
+
+    .projects{flex:1;padding:60px 10%;text-align:center}
+    .projects h1{font-size:42px;color:#00d4ff;margin-bottom:40px}
+
+    .project-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px
+    }
+
+    .project-card{
+      background:rgba(255,255,255,0.04);
+      padding:25px;border-radius:16px;
+      text-align:left;
+      transition:.4s;
+      opacity:0;transform:translateY(30px)
+    }
+    .project-card.show{opacity:1;transform:translateY(0)}
+
+    .project-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 18px rgba(0,212,255,.35)
+    }
+
+    .project-card i{
+      font-size:32px;color:#00d4ff;margin-bottom:12px
+    }
+
+    .project-card h3{font-size:20px;margin-bottom:10px}
+    .project-card p{
+      font-size:15px;color:#ccc;line-height:1.7
+    }
+
+    .tech{
+      margin-top:12px;
+      font-size:14px;
+      color:#aaa
+    }
+
+    footer{
+      text-align:center;padding:20px;
+      background:rgba(255,255,255,.05);
+      border-top:1px solid rgba(255,255,255,.1);
+      color:#aaa;margin-top:100px
+    }
+
+    @media(max-width:768px){
+      .projects{padding:50px 6%}
+      .projects h1{font-size:34px}
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">Portfolio</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="project.html" class="active">Projects</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="certificate.html">Certifications</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="projects">
+  <h1>My Projects</h1>
+
+  <div class="project-grid">
+
+    <!-- Agentic AI Project -->
+    <div class="project-card">
+      <i class="fas fa-robot"></i>
+      <h3>Autonomous QA Testing Agent</h3>
+      <p>
+        Built an Agentic AI–powered autonomous QA testing system that intelligently
+        generates, executes, and self-heals UI and API test cases. Integrated
+        autonomous reasoning using LangChain4j with a Spring Boot backend and
+        a React dashboard for real-time test insights.
+      </p>
+      <div class="tech">
+        <strong>Tech:</strong> Core Java, Spring Boot, REST APIs, MySQL, Hibernate,
+        LangChain4j, Agentic AI, React.js, OpenAI API
+      </div>
+    </div>
+
+    <!-- FoodPort -->
+    <div class="project-card">
+      <i class="fas fa-utensils"></i>
+      <h3>FoodPort — Online Parcel Ordering System</h3>
+      <p>
+        Developed REST APIs for user authentication, menu management, and order
+        processing. Implemented role-based access control and designed normalized
+        database schemas to ensure scalability and data integrity.
+      </p>
+      <div class="tech">
+        <strong>Tech:</strong> Java, Spring Boot, Hibernate, REST APIs, MySQL
+      </div>
+    </div>
+
+    <!-- ProjexStore -->
+    <div class="project-card">
+      <i class="fas fa-box-open"></i>
+      <h3>ProjexStore — Project Selling Platform</h3>
+      <p>
+        Built a secure platform for uploading, purchasing, and downloading software
+        projects. Implemented role-based access control and backend workflows for
+        approvals, payments, and project delivery.
+      </p>
+      <div class="tech">
+        <strong>Tech:</strong> Java, Servlets, JDBC, JSP, MySQL
+      </div>
+    </div>
+
+    <!-- E-Commerce -->
+    <div class="project-card">
+      <i class="fas fa-shopping-cart"></i>
+      <h3>E-Commerce Web Application</h3>
+      <p>
+        Implemented backend logic for product catalog management, cart operations,
+        and order processing. Designed relational schemas and validated database
+        transactions to maintain data consistency and integrity.
+      </p>
+      <div class="tech">
+        <strong>Tech:</strong> MySQL, SQL Queries, Joins, Subqueries, Indexing
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Prathamesh Pawar | All Rights Reserved
+</footer>
+
+<script>
+  const cards=document.querySelectorAll(".project-card");
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.2});
+  cards.forEach(card=>observer.observe(card));
+</script>
+
+</body>
+</html>
